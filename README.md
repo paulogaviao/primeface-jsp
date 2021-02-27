@@ -1,2 +1,2 @@
-# primeface-jsp
+# primeface-jsf
 projeto estudo
