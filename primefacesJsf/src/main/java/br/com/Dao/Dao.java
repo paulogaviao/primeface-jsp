@@ -2,6 +2,7 @@ package br.com.Dao;
 
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -58,4 +59,12 @@ public class Dao<E> {
 	return lista;
 	}
 
+	public E buscar(Class<E>entidade ,String codigo) {
+		EntityManager conexao = JpaUtil.getEntityManager();
+		EntityTransaction transacao = conexao.getTransaction();
+		transacao.begin();
+		E objeto = (E) conexao.find(entidade, Long.parseLong(codigo));
+		transacao.commit();
+		return objeto;
+	}
 }

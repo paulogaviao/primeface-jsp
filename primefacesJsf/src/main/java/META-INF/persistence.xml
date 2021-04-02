@@ -4,15 +4,35 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	
 	<class>br.com.entidades.Pessoa</class>
+	<class>br.com.entidades.Lancamento</class>
+	<class>br.com.entidades.Estados</class>
+	<class>br.com.entidades.Cidades</class>
 	<properties>
 	<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 	<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/primefacesJsf"/>
 	<property name="javax.persistence.jdbc.user" value="postgres"/>
 	<property name="javax.persistence.jdbc.password" value="admin"/>
 	<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect "/>
-	<property name="hibernate.hbm2ddl.auto" value="update"/>
+	<property name="hibernate.hbm2ddl.auto" value="none"/>
 	<property name="hibernate.show_sql" value="true"/>
 	<property name="hibernate.format_sql" value="true"/>
+	
+	<!-- NÚMERO MINIMO DE PORTAS ABERTAS PRA O BD -->
+	<property name="hibernate.c3p0.min_size" value="5"/>
+	
+	<!-- NÚMERO MÁXIMO DE PORTAS ABERTAS PRA O BD -->
+	<property name="hibernate.c3p0.max_size" value="50"/>
+	
+	<!-- O TEMPO QUE A CONEXÃO FICARÁ INATIVO NO POOL -->
+	<property name="hibernate.c3p0.timeout" value="300"/>
+	
+	<!-- NÚMERO MAXIMO DE OPERAÇÕES ,TRANSAÇÕES DO BD MANTIDAS EM CACHE -->
+	<property name="hibernate.c3p0.max_statements" value="50"/>
+	
+	<!-- TEMPO OCIOSO EM SEGUNDOS ANTES DE UMA CONEXAO SER VALIDADA AUTOMATICAMENTE -->
+	<property name="hibernate.c3p0.idle_test_period" value="1800"/>
+	
+	
 	</properties>
 	</persistence-unit>
 </persistence>
